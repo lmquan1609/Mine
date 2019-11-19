@@ -19,8 +19,8 @@ model.fit(sample)
 # sample probs for a range of outcomes
 values = np.asarray([value for value in range(1, 60)])
 values = np.expand_dims(values, 1)
-probs = model.score_samples(values)
-probs = np.exp(probs)
+log_probs = model.score_samples(values)
+probs = np.exp(log_probs)
 
 # plot the histogram and pdf
 plt.hist(sample, bins=50, density=True)
